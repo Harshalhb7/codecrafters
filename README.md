@@ -20,10 +20,10 @@ Every day, wedding halls, canteens, and restaurants discard hundreds of meals wh
 
 ## Tech Stack Used
 
-Frontend: HTML, CSS, JavaScript
-UI/UX: Custom responsive design
-Maps: Leaflet.js (OpenStreetMap integration)
-AI Support: Claude AI (for development assistance)
+* Frontend: HTML, CSS, JavaScript
+* UI/UX: Custom responsive design
+* Maps: Leaflet.js (OpenStreetMap integration)
+* AI Support: Claude AI (for development assistance)
 
 ## Setup / Installation Instructions
 
