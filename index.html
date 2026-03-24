@@ -6,7 +6,8 @@
   <title>HungerBridge — Bridging Surplus to Shelters</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
 
@@ -439,7 +440,7 @@
         <div class="dash-header">
           <div>
             <h1>Live Food Feed 🔴</h1>
-            <p>Showing available listings near <strong>Mumbai</strong></p>
+           <p>Showing available listings near <strong>Nagpur</strong></p>
           </div>
           <div class="filter-bar">
             <select onchange="filterNGOListings(this.value)">
@@ -465,26 +466,17 @@
         <div id="ngo-claimed-list" class="listings-grid"></div>
       </div>
 
-      <!-- NGO: MAP -->
+     <!-- NGO: MAP -->
       <div id="ngo-map" class="dash-section">
         <h1>Map View 🗺️</h1>
         <div class="map-placeholder">
-          <div class="map-mock">
-            <div class="map-bg">
-              <div class="map-pin pin1" title="Hotel Grandeur — 50 meals">📍<span>Hotel Grandeur<br>50 meals • 1h 20m</span></div>
-              <div class="map-pin pin2" title="Wedding Hall — 120 meals">📍<span>Wedding Hall<br>120 meals • 45m</span></div>
-              <div class="map-pin pin3" title="Canteen — 30 meals">📍<span>Canteen<br>30 meals • 1h 50m</span></div>
-              <div class="map-you">📍 You</div>
-              <div class="map-label">📍 Asha Foundation (You)</div>
-            </div>
-          </div>
+          <div id="leaflet-map" style="flex:2;min-width:280px;height:420px;border-radius:18px;overflow:hidden;box-shadow:0 4px 24px rgba(245,166,35,.13);border:1.5px solid #F0E8D8;z-index:1;"></div>
           <div class="map-list">
             <h3>Nearby Listings</h3>
             <div id="map-nearby-list"></div>
           </div>
         </div>
       </div>
-
       <!-- NGO: ANALYTICS -->
       <div id="ngo-analytics" class="dash-section">
         <h1>NGO Analytics 📈</h1>
@@ -608,6 +600,7 @@
 
 <div id="toast" class="toast"></div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
