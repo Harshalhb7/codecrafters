@@ -9,6 +9,6 @@ Every day, wedding halls, canteens, and restaurants discard hundreds of meals wh
 
 ## Team Members
 
-1.Rsuhikesh Sarate
-2.Abhi Bhongade
-3.Harshal Bolwatkar
+1. Rushikesh Sarate
+2. Abhi Bhongade
+3. Harshal Bolwatkar
