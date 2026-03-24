@@ -581,10 +581,4 @@ window.addEventListener('DOMContentLoaded', () => {
       el.textContent = val.toLocaleString();
     }
   }, 4000);
-  if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then(() => console.log('✅ HungerBridge PWA ready'))
-    .catch(err => console.log('SW error:', err));
-}
-```
 });
