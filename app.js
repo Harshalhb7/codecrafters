@@ -7,60 +7,60 @@ let countdownIntervals = [];
 // ==================== SAMPLE DATA ====================
 const sampleListings = [
   {
-    id:1, name:'Paneer Biryani', type:'Cooked Meal', qty:50, address:'Hotel Grandeur, Andheri West, Mumbai',
-    donor:'Hotel Grandeur', image:'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=200&fit=crop',
+    id:1, name:'Paneer Biryani', type:'Cooked Meal', qty:50, address:'Hotel Centre Point, Ramdaspeth, Nagpur',
+    donor:'Hotel Centre Point', image:'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=200&fit=crop',
     status:'active', seconds:4800, claimed_by:null, notes:'Fresh, hot. Served in containers.', postedAt:'2:30 PM'
   },
   {
-    id:2, name:'Mixed Veg Thali', type:'Cooked Meal', qty:120, address:'Celebration Banquet Hall, Bandra, Mumbai',
-    donor:'Celebration Hall', image:'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=200&fit=crop',
+    id:2, name:'Mixed Veg Thali', type:'Cooked Meal', qty:120, address:'Raj Mahal Banquet, Dharampeth, Nagpur',
+    donor:'Raj Mahal Banquet', image:'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=200&fit=crop',
     status:'active', seconds:2700, claimed_by:null, notes:'Wedding leftovers. Includes sweet.', postedAt:'3:00 PM'
   },
   {
-    id:3, name:'Sandwich & Snack Boxes', type:'Snacks', qty:80, address:'Tech Park Canteen, Powai, Mumbai',
-    donor:'Infosys Canteen', image:'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&h=200&fit=crop',
+    id:3, name:'Sandwich & Snack Boxes', type:'Snacks', qty:80, address:'IT Park Canteen, Parsodi, Nagpur',
+    donor:'IT Park Canteen', image:'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&h=200&fit=crop',
     status:'active', seconds:6600, claimed_by:null, notes:'Individually packed.', postedAt:'3:15 PM'
   },
   {
-    id:4, name:'Dal & Rice Combo', type:'Cooked Meal', qty:35, address:'Sunrise Restaurant, Dadar, Mumbai',
-    donor:'Sunrise Restaurant', image:'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=200&fit=crop',
+    id:4, name:'Dal & Rice Combo', type:'Cooked Meal', qty:35, address:'Surya Restaurant, Sitabuldi, Nagpur',
+    donor:'Surya Restaurant', image:'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=200&fit=crop',
     status:'claimed', seconds:3200, claimed_by:'Asha Foundation', notes:'Needs container pickup.', postedAt:'2:00 PM'
   },
   {
-    id:5, name:'Bread Loaves & Pastries', type:'Snacks / Bakery', qty:40, address:'French Bakery, Colaba, Mumbai',
-    donor:'French Bakery', image:'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=200&fit=crop',
+    id:5, name:'Bread Loaves & Pastries', type:'Snacks / Bakery', qty:40, address:'German Bakery, Sadar, Nagpur',
+    donor:'German Bakery', image:'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=200&fit=crop',
     status:'active', seconds:3900, claimed_by:null, notes:'Day-end surplus. Best before tonight.', postedAt:'4:00 PM'
   },
   {
-    id:6, name:'Chole Bhature', type:'Cooked Meal', qty:60, address:'Old Delhi Dhaba, Kurla, Mumbai',
-    donor:'Old Delhi Dhaba', image:'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=200&fit=crop',
+    id:6, name:'Chole Bhature', type:'Cooked Meal', qty:60, address:'Haldiram Dhaba, Gandhibagh, Nagpur',
+    donor:'Haldiram Dhaba', image:'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=200&fit=crop',
     status:'expired', seconds:0, claimed_by:null, notes:'Expired listing.', postedAt:'12:00 PM'
   }
 ];
 
 const volunteerDispatches = [
   {
-    id:1, food:'Paneer Biryani (50 servings)', pickup:'Hotel Grandeur, Andheri West',
-    dropoff:'Asha Foundation, Bandra', distance:'4.2 km', urgency:'high', seconds:1800,
+   id:1, food:'Paneer Biryani (50 servings)', pickup:'Hotel Centre Point, Ramdaspeth, Nagpur',
+    dropoff:'Asha Foundation, Dharampeth', distance:'3.1 km', urgency:'high', seconds:1800,
     ngo:'Asha Foundation'
   },
   {
-    id:2, food:'Mixed Veg Thali (120 servings)', pickup:'Celebration Hall, Bandra',
-    dropoff:'Care India NGO, Juhu', distance:'2.8 km', urgency:'medium', seconds:3600,
+   id:2, food:'Mixed Veg Thali (120 servings)', pickup:'Raj Mahal Banquet, Dharampeth, Nagpur',
+    dropoff:'Care India NGO, Sitabuldi', distance:'2.2 km', urgency:'medium', seconds:3600,
     ngo:'Care India NGO'
   },
   {
-    id:3, food:'Sandwich Boxes (80 servings)', pickup:'Tech Park Canteen, Powai',
-    dropoff:'Shelter Home, Vikhroli', distance:'1.9 km', urgency:'low', seconds:5400,
+    id:3, food:'Sandwich Boxes (80 servings)', pickup:'IT Park Canteen, Parsodi, Nagpur',
+    dropoff:'Shelter Home, Nandanvan', distance:'4.5 km', urgency:'low', seconds:5400,
     ngo:'Shelter Home Trust'
   }
 ];
 
 const leaderboardData = [
-  { name:'Priya Menon', city:'Mumbai', deliveries:142, img:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop' },
-  { name:'Arjun Sharma', city:'Mumbai', deliveries:67, img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop' },
-  { name:'Kavya Nair', city:'Pune', deliveries:58, img:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop' },
-  { name:'Rahul Desai', city:'Mumbai', deliveries:49, img:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop' },
+  { name:'Priya Menon', city:'Nagpur', deliveries:142, img:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop' },
+  { name:'Arjun Sharma', city:'Nagpur', deliveries:67, img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop' },
+  { name:'Kavya Nair', city:'Nagpur', deliveries:58, img:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop' },
+  { name:'Rahul Desai', city:'Nagpur', deliveries:49, img:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop' },
   { name:'Sneha Patil', city:'Nagpur', deliveries:38, img:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop' }
 ];
 
@@ -342,19 +342,61 @@ function renderNGOChart() {
     </div>`).join('');
 }
 
+// Real Nagpur donor locations with coordinates
+const nagpurDonors = [
+  { id:1, name:'Hotel Centre Point', area:'Ramdaspeth', lat:21.1427, lng:79.0871, meals:50,  time:'1h 20m' },
+  { id:2, name:'Raj Mahal Banquet',  area:'Dharampeth', lat:21.1385, lng:79.0752, meals:120, time:'45m' },
+  { id:3, name:'IT Park Canteen',    area:'Parsodi',    lat:21.1602, lng:79.1228, meals:80,  time:'1h 50m' },
+  { id:4, name:'Surya Restaurant',   area:'Sitabuldi',  lat:21.1458, lng:79.0882, meals:35,  time:'1h 10m' },
+  { id:5, name:'German Bakery',      area:'Sadar',      lat:21.1523, lng:79.0845, meals:40,  time:'55m' },
+];
+
+let leafletMap = null;
+
 function renderMapNearby() {
+  // Sidebar list
   const container = document.getElementById('map-nearby-list');
-  if (!container) return;
-  const active = sampleListings.filter(l => l.status === 'active').slice(0,4);
-  container.innerHTML = active.map(l => `
-    <div class="activity-item" style="margin-bottom:10px">
-      <div class="activity-icon">📍</div>
-      <div class="activity-text">
-        <strong>${l.name}</strong>
-        <span>${l.qty} servings • ${l.address.split(',')[1] || l.address}</span>
-      </div>
-      <button class="btn-claim" onclick="claimListing(${l.id})" style="font-size:.78rem;padding:6px 14px">Claim</button>
-    </div>`).join('');
+  if (container) {
+    container.innerHTML = nagpurDonors.map(d => `
+      <div class="activity-item" style="margin-bottom:10px">
+        <div class="activity-icon">📍</div>
+        <div class="activity-text">
+          <strong>${d.name}</strong>
+          <span>${d.meals} servings • ${d.area} • ⏱ ${d.time}</span>
+        </div>
+        <button class="btn-claim" onclick="claimListing(${d.id})" style="font-size:.78rem;padding:6px 14px">Claim</button>
+      </div>`).join('');
+  }
+
+  // Init Leaflet map centred on Nagpur
+  setTimeout(() => {
+    const mapEl = document.getElementById('leaflet-map');
+    if (!mapEl || leafletMap) return;
+
+    leafletMap = L.map('leaflet-map').setView([21.1458, 79.0882], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(leafletMap);
+
+    // NGO "You" marker
+    const youIcon = L.divIcon({
+      html: '<div style="background:#F5A623;color:#1A1209;padding:5px 10px;border-radius:50px;font-weight:700;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3)">📍 You (Asha NGO)</div>',
+      className: '', iconAnchor: [60, 16]
+    });
+    L.marker([21.1458, 79.0882], { icon: youIcon }).addTo(leafletMap);
+
+    // Donor pins
+    nagpurDonors.forEach(d => {
+      const icon = L.divIcon({
+        html: `<div style="background:#1A1209;color:#F5A623;padding:5px 10px;border-radius:50px;font-weight:700;font-size:11px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3)">🍱 ${d.name}</div>`,
+        className: '', iconAnchor: [50, 16]
+      });
+      L.marker([d.lat, d.lng], { icon })
+        .addTo(leafletMap)
+        .bindPopup(`<b>${d.name}</b><br>${d.meals} meals available<br>⏱ ${d.time} left<br><i>${d.area}, Nagpur</i>`);
+    });
+  }, 300);
 }
 
 // ==================== VOLUNTEER DASHBOARD ====================
