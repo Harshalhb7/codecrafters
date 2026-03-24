@@ -8,32 +8,32 @@ let countdownIntervals = [];
 const sampleListings = [
   {
     id:1, name:'Paneer Biryani', type:'Cooked Meal', qty:50, address:'Hotel Centre Point, Ramdaspeth, Nagpur',
-    donor:'Hotel Centre Point', image:'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&h=200&fit=crop',
+    donor:'Hotel Centre Point', image:'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400&h=200&fit=crop',
     status:'active', seconds:4800, claimed_by:null, notes:'Fresh, hot. Served in containers.', postedAt:'2:30 PM'
   },
   {
     id:2, name:'Mixed Veg Thali', type:'Cooked Meal', qty:120, address:'Raj Mahal Banquet, Dharampeth, Nagpur',
-    donor:'Raj Mahal Banquet', image:'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=200&fit=crop',
+    donor:'Raj Mahal Banquet', image:'https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&h=200&fit=crop',
     status:'active', seconds:2700, claimed_by:null, notes:'Wedding leftovers. Includes sweet.', postedAt:'3:00 PM'
   },
   {
     id:3, name:'Sandwich & Snack Boxes', type:'Snacks', qty:80, address:'IT Park Canteen, Parsodi, Nagpur',
-    donor:'IT Park Canteen', image:'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&h=200&fit=crop',
+    donor:'IT Park Canteen', image:'https://images.unsplash.com/photo-1553909489-cd47e0907980?w=400&h=200&fit=crop',
     status:'active', seconds:6600, claimed_by:null, notes:'Individually packed.', postedAt:'3:15 PM'
   },
   {
     id:4, name:'Dal & Rice Combo', type:'Cooked Meal', qty:35, address:'Surya Restaurant, Sitabuldi, Nagpur',
-    donor:'Surya Restaurant', image:'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=200&fit=crop',
+    donor:'Surya Restaurant', image:'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=200&fit=crop',
     status:'claimed', seconds:3200, claimed_by:'Asha Foundation', notes:'Needs container pickup.', postedAt:'2:00 PM'
   },
   {
     id:5, name:'Bread Loaves & Pastries', type:'Snacks / Bakery', qty:40, address:'German Bakery, Sadar, Nagpur',
-    donor:'German Bakery', image:'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=200&fit=crop',
+    donor:'German Bakery', image:'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=200&fit=crop',
     status:'active', seconds:3900, claimed_by:null, notes:'Day-end surplus. Best before tonight.', postedAt:'4:00 PM'
   },
   {
     id:6, name:'Chole Bhature', type:'Cooked Meal', qty:60, address:'Haldiram Dhaba, Gandhibagh, Nagpur',
-    donor:'Haldiram Dhaba', image:'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=200&fit=crop',
+    donor:'Haldiram Dhaba', image:'https://images.unsplash.com/photo-1626082927389-6cd097cee6a6?w=400&h=200&fit=crop',
     status:'expired', seconds:0, claimed_by:null, notes:'Expired listing.', postedAt:'12:00 PM'
   }
 ];
